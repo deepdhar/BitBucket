@@ -25,7 +25,7 @@ const HomePage: React.FC<HomePageProps> = ({ initialRepos }) => {
     const loadLastCommits = async () => {
       const updatedRepos = await Promise.all(
         repos.map(async (repo) => {
-          const lastCommit = await fetchLastCommit(repo.full_name);
+          const lastCommit = await fetchLastCommit(repo);
           return {
             ...repo,
             lastCommitMessage: lastCommit.commit.message,
